@@ -1,3 +1,50 @@
+      <form className="space-y-4">
+        {/*Title Field*/}
+        <FormField
+          id="title"
+          name="title"
+          label="Title:"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+
+        {/*Author Field*/}
+        <FormField
+          id="author"
+          name="author"
+          label="Author:"
+          type="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+
+        {/*Genre Field*/}
+        <FormField
+          id="genre"
+          name="genre"
+          label="Genre:"
+          type="genre"
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
+
+        {/*Number of Pages Field*/}
+        <FormField
+          id="numberOfPages"
+          name="numberOfPages"
+          label="# of Pages:"
+          type="numberOfPages"
+          value={numberOfPages}
+          onChange={(e) => setNumberOfPages(e.target.value)}
+        />
+
+        {/*Submit Button*/}
+        <Button type="submit" text="Add Book" />
+      </form>
+    </main>
+  );
+}
 
 function Button({ disabled, type = "button", text }) {
   return (
