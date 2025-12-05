@@ -1,3 +1,16 @@
+import useBookshelf from "./use-bookshelf";
+
+export default function Bookshelf() {
+  const {
+    title,
+    author,
+    genre,
+    numberOfPages,
+    setTitle,
+    setAuthor,
+    setGenre,
+    setNumberOfPages,
+  } = useBookshelf();
 
   return (
     <main className="max-w-lg mx-auto p-4 border border-gray-300 rounded-lg mt-10">
