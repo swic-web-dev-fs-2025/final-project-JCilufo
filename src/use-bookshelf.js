@@ -1,3 +1,4 @@
+import { useLocalStorage } from "@uidotdev/usehooks";
 import { useState } from "react";
 
 export default function useBookshelf() {
@@ -5,6 +6,7 @@ export default function useBookshelf() {
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("");
   const [numberOfPages, setNumberOfPages] = useState("");
+  const [books, setBooks] = useLocalStorage("books", []);
 
   return {
     title,
