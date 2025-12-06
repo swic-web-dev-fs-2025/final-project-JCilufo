@@ -13,9 +13,11 @@ export default function useBookshelf() {
     author,
     genre,
     numberOfPages,
+    books,
     setTitle,
     setAuthor,
     setGenre,
     setNumberOfPages,
+    setBooks,
   };
 }
