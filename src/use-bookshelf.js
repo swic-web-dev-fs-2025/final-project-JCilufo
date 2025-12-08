@@ -45,6 +45,14 @@ export default function useBookshelf() {
       ? books
       : (books || []).filter((b) => (b.genre || "") === selectedGenre);
 
+  // Use the reduce method to group books by genre using the above filtered array
+  const map = filtered.reduce((acc, book) => {
+    const g = book.genre || "Uncategorized";
+    if (!acc[g]) acc[g] = [];
+    acc[g].push(book);
+    return acc;
+  }, {});
+
 
   return {
     // Form state
