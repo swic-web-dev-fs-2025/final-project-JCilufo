@@ -20,6 +20,13 @@ export default function useBookshelf() {
     setBooks((prev) => [...prev, newBook]);
   };
 
+  const clearForm = () => {
+    setTitle("");
+    setAuthor("");
+    setGenre("");
+    setNumberOfPages("");
+  };
+
   return {
     title,
     author,
