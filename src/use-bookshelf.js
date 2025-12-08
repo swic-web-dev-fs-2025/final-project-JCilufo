@@ -27,6 +27,10 @@ export default function useBookshelf() {
     setNumberOfPages("");
   };
 
+  const deleteBook = (id) => {
+    setBooks((prev) => prev.filter((book) => book.id !== id)); // Remove todo with matching id
+  };
+
   return {
     title,
     author,
