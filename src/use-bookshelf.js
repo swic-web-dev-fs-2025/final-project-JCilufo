@@ -39,6 +39,12 @@ export default function useBookshelf() {
     )
   ).sort((a, b) => a.localeCompare(b));
 
+  // Use the filter method to sort the books alphabetically by author
+  const filtered =
+    selectedGenre === "all"
+      ? books
+      : (books || []).filter((b) => (b.genre || "") === selectedGenre);
+
 
   return {
     // Form state
