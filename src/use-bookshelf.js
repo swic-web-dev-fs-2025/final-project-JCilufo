@@ -7,6 +7,7 @@ export default function useBookshelf() {
   const [genre, setGenre] = useState("");
   const [numberOfPages, setNumberOfPages] = useState("");
   const [books, setBooks] = useLocalStorage("books", []);
+  const [selectedGenre, setSelectedGenre] = useState("all");
 
   const addBook = () => {
     const newBook = {
