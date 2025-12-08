@@ -32,6 +32,14 @@ export default function useBookshelf() {
     setBooks((prev) => prev.filter((book) => book.id !== id)); // Remove todo with matching id
   };
 
+  // Derive unique genre options and sort them alphabetically
+  const genreOptions = Array.from(
+    new Set(
+      (books || []).map((b) => (b.genre ? b.genre.trim() : "")).filter(Boolean)
+    )
+  ).sort((a, b) => a.localeCompare(b));
+
+
   return {
     // Form state
     title,
