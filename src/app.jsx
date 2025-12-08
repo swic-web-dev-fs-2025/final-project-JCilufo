@@ -2,6 +2,7 @@ import useBookshelf from "./use-bookshelf";
 
 export default function Bookshelf() {
   const {
+    // Form state
     title,
     author,
     genre,
@@ -10,6 +11,17 @@ export default function Bookshelf() {
     setAuthor,
     setGenre,
     setNumberOfPages,
+    clearForm,
+
+    // Books state
+    addBook,
+    deleteBook,
+
+    // Sorting state
+    selectedGenre,
+    setSelectedGenre,
+    genreOptions,
+    groupedBooks,
   } = useBookshelf();
 
   return (
