@@ -18,6 +18,7 @@ export default function useBookshelf() {
       numberOfPages: Number(numberOfPages),
     };
 
+    // Call setBooks internally to update localStorage
     setBooks((prev) => [...prev, newBook]);
   };
 
@@ -53,6 +54,18 @@ export default function useBookshelf() {
     return acc;
   }, {});
 
+  // `genres` uses `localeCompare` to sort the genres alphabetically
+  const genres = Object.keys(map).sort((a, b) => a?.localeCompare(b));
+
+  // `groupedBooks` creates an array of objects with genre and sorted books by author
+  const groupedBooks = genres.map((g) => ({
+    genre: g,
+    books: map[g]
+      .slice()
+      .sort((a, b) =>
+        String(a.author || "").localeCompare(String(b.author || ""))
+      ),
+  }));
 
   return {
     // Form state
