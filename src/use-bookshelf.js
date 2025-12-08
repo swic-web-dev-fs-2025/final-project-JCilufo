@@ -33,15 +33,25 @@ export default function useBookshelf() {
   };
 
   return {
+    // Form state
     title,
     author,
     genre,
     numberOfPages,
-    books,
     setTitle,
     setAuthor,
     setGenre,
     setNumberOfPages,
-    setBooks,
+    clearForm,
+
+    // Books state
+    addBook,
+    deleteBook,
+
+    // Sorting
+    selectedGenre,
+    setSelectedGenre,
+    genreOptions,
+    groupedBooks,
   };
 }
