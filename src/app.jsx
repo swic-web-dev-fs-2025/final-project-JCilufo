@@ -32,11 +32,14 @@ export default function Bookshelf() {
   };
 
   return (
-    <main className="max-w-lg mx-auto p-4 border border-gray-300 rounded-lg mt-10">
-      <h1 className="text-3xl font-bold underline text-center">Bookshelf</h1>
+    <main>
+      <h1 className="text-3xl font-bold mt-3 text-center">Bookshelf</h1>
 
-      <form className="space-y-4">
-        {/*Title Field*/}
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 flex flex-col items-stretch w-md lg:w-xl 2xl:w-4xl mx-auto p-4 border border-gray-300 rounded-lg mt-3"
+      >
+        {/* Title Field */}
         <FormField
           id="title"
           name="title"
