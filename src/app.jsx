@@ -24,6 +24,13 @@ export default function Bookshelf() {
     groupedBooks,
   } = useBookshelf();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addBook();
+    clearForm();
+    setSelectedGenre("all");
+  };
+
   return (
     <main className="max-w-lg mx-auto p-4 border border-gray-300 rounded-lg mt-10">
       <h1 className="text-3xl font-bold underline text-center">Bookshelf</h1>
