@@ -112,6 +112,9 @@ export default function Bookshelf() {
           ))}
         </select>
       </div>
+
+      {/* List of Books */}
+      <ListOfBooks groupedBooks={groupedBooks} onDelete={deleteBook} />
     </main>
   );
 }
