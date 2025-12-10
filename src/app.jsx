@@ -90,7 +90,7 @@ export default function Bookshelf() {
 
         {/* Submit Button */}
         <div className="self-center">
-        <Button type="submit" text="Add Book" />
+          <Button type="submit" text="Add Book" />
         </div>
       </form>
 
@@ -139,7 +139,6 @@ function FormField({
   name,
   id,
   required = true,
-  validationMessage,
 }) {
   return (
     <div className="grid grid-cols-3 2xl:grid-cols-2 items-center">
@@ -159,6 +158,76 @@ function FormField({
   );
 }
 
+function ListOfBooks({ groupedBooks = [], onDelete }) {
+  if (!groupedBooks || groupedBooks.length === 0) {
+    return (
+      <p className="text-slate-400 text-center md:text-lg xl:text-xl pt-10 border rounded-lg border-gray-300 w-md md:w-2xl lg:w-3xl xl:w-4xl 2xl:w-7xl mx-auto h-75 mt-5">
+        No books yet...
+      </p>
+    );
+  }
+
+  return (
+    <div className="w-md md:w-2xl lg:w-3xl xl:w-4xl 2xl:w-7xl mx-auto mt-1">
+      {groupedBooks.map(({ genre, books }) => (
+        <div key={genre} className="mb-4 lg:mb-8">
+          <h2 className="text-2xl font-bold mb-4 text-slate-700">{genre}</h2>
+          <table className="w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-blue-100">
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Title
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Author
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-left">
+                  Pages
+                </th>
+                <th className="border border-gray-300 px-4 py-2 text-center">
+                  Delete
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {books.map((book) => (
+                <tr key={book.id} className="hover:bg-slate-50">
+                  <td className="border border-gray-300 px-4 py-2 2xl:py-4 2xl:text-lg">
+                    {book.title}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 2xl:text-lg">
+                    {book.author}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 2xl:text-lg">
+                    {book.numberOfPages}
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    <button
+                      onClick={() => onDelete(book.id)}
+                      className="rounded bg-red-500 mt-1 text-white hover:bg-red-600 cursor-pointer"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18 18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
 }
