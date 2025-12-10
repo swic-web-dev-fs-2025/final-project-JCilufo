@@ -142,8 +142,8 @@ function FormField({
   validationMessage,
 }) {
   return (
-    <div>
-      <label htmlFor="bookInfo" className="mb-1 block text-sm font-medium">
+    <div className="grid grid-cols-3 2xl:grid-cols-2 items-center">
+      <label htmlFor={id} className="text-md lg:text-lg xl:text-xl font-medium">
         {label}
       </label>
       <input
@@ -152,10 +152,13 @@ function FormField({
         type={type}
         value={value}
         onChange={onChange}
-        className="w-full rounded border px-3 py-2"
+        className="col-span-2 2xl:col-span-1 rounded border py-1 lg:py-2 pl-2"
         required={required}
       />
-      {validationMessage}
+    </div>
+  );
+}
+
     </div>
   );
 }
