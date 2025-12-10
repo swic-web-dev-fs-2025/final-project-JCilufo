@@ -69,14 +69,23 @@ export default function Bookshelf() {
           onChange={(e) => setGenre(e.target.value)}
         />
 
-        {/*Number of Pages Field*/}
+        {/* Number of Pages Field */}
         <FormField
           id="numberOfPages"
           name="numberOfPages"
           label="# of Pages:"
-          type="numberOfPages"
+          type="number"
           value={numberOfPages}
-          onChange={(e) => setNumberOfPages(e.target.value)}
+          onChange={(e) => {
+            const v = e.target.value;
+            setNumberOfPages(v === "" ? "" : Number(v));
+          }}
+          inputProps={{
+            min: 0,
+            step: 1,
+            inputMode: "numeric",
+            pattern: "\\d*",
+          }}
         />
 
         {/*Submit Button*/}
