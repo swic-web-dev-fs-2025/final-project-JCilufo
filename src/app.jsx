@@ -88,8 +88,10 @@ export default function Bookshelf() {
           }}
         />
 
-        {/*Submit Button*/}
+        {/* Submit Button */}
+        <div className="self-center">
         <Button type="submit" text="Add Book" />
+        </div>
       </form>
     </main>
   );
