@@ -49,22 +49,22 @@ export default function Bookshelf() {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        {/*Author Field*/}
+        {/* Author Field */}
         <FormField
           id="author"
           name="author"
           label="Author:"
-          type="author"
+          type="text"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
 
-        {/*Genre Field*/}
+        {/* Genre Field */}
         <FormField
           id="genre"
           name="genre"
           label="Genre:"
-          type="genre"
+          type="text"
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         />
