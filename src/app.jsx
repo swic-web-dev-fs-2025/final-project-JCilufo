@@ -93,6 +93,25 @@ export default function Bookshelf() {
         <Button type="submit" text="Add Book" />
         </div>
       </form>
+
+      {/* Filter Dropdown */}
+      <div className="mt-4 flex items-center justify-center">
+        <label className="text-md 2xl:text-lg font-medium">
+          Filter by genre:
+        </label>
+        <select
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+          className="ml-2 rounded border px-12 lg:px-14 py-1"
+        >
+          <option value="all">All</option>
+          {genreOptions.map((g) => (
+            <option key={g} value={g}>
+              {g}
+            </option>
+          ))}
+        </select>
+      </div>
     </main>
   );
 }
